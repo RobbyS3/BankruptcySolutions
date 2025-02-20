@@ -5,14 +5,15 @@ const bodyParser = require('body-parser');
 const { DynamoDBClient } = require('@aws-sdk/client-dynamodb');
 const { DynamoDBDocumentClient, PutCommand, ScanCommand } = require('@aws-sdk/lib-dynamodb');
 const { v4: uuidv4 } = require('uuid');
+require('dotenv').config();
 //const cors = require('cors');
 
 // Initialize the DynamoDB client
 const client = new DynamoDBClient({
-    region: "us-east-2",
+    region: process.env.AWS_REGION,
     credentials: {
-        accessKeyId: "YOUR-ACCESS-KEY-ID",
-        secretAccessKey: "YOUR-SECRET-ACCESS-KEY"
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
 });
 

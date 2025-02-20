@@ -401,3 +401,4 @@ FodyWeavers.xsd
 #package json files
 package-lock.json
 package.json
+.env
